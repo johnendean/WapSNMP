@@ -266,7 +266,7 @@ func DecodeSequence(toparse []byte) ([]interface{}, error) {
 	lidx := 0
 	idx := 1 + seqLenLen
 	// Let's guarantee progress.
-	for idx < len(toparse) && idx > lidx {
+	for idx < int(seqLength) && idx > lidx {
 		berType := toparse[idx]
 		berLength, berLenLen, err := DecodeLength(toparse[idx+1:])
 		if err != nil {
